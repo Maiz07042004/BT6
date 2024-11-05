@@ -5,40 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@android:color/white"  >
 
+    <!-- TextView -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#C88282"
-        android:text="Đặng Thanh Mai 22115053122123" />
+        android:text="Đặng Thanh Mai 22115053122123"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#B62121"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp" />
 
+    <!-- Button Show All Contact -->
     <Button
         android:id="@+id/btnshowallcontact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#C88282"
-        android:text="Show All Contact" />
+        android:text="Show All Contact"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
 
+    <!-- Button Access Call Log -->
     <Button
         android:id="@+id/btnaccesscalllog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#C88282"
-        android:text="Access The Call Log" />
+        android:text="Access The Call Log"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="16dp"
+        android:gravity="center" />
 
+    <!-- Button Show Message -->
     <Button
-        android:id="@+id/btnmediastore"
+        android:id="@+id/btnShowMess"
         android:layout_width="match_parent"
-        android:backgroundTint="#C88282"
         android:layout_height="wrap_content"
-        android:text="Access Media Store" />
-
-    <Button
-        android:id="@+id/btnaccessbookmarks"
-        android:layout_width="match_parent"
         android:backgroundTint="#C88282"
-        android:layout_height="wrap_content"
-        android:text="Access Bookmarks" />
+        android:text="Show Message"
+        android:textColor="#ffffff"
+        android:gravity="center" />
 
 </LinearLayout>

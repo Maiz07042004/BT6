@@ -46,31 +46,23 @@ public class ShowAllContactActivity extends Activity {
     }
 
     public void showAllContacts() {
-        Uri uri = ContactsContract.Contacts.CONTENT_URI;
-        String[] projection = new String[] {
-                ContactsContract.Contacts._ID,
-                ContactsContract.Contacts.DISPLAY_NAME
-        };
         ArrayList<String> list = new ArrayList<>();
 
-        CursorLoader loader = new CursorLoader(this, uri, projection, null, null, null);
-        Cursor cursor = loader.loadInBackground();
-
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
+        Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
                 int idIndex = cursor.getColumnIndex(ContactsContract.Contacts._ID);
                 int nameIndex = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
-
                 if (idIndex != -1 && nameIndex != -1) {
                     String id = cursor.getString(idIndex);
                     String name = cursor.getString(nameIndex);
-                    list.add(id + " - " + name);
+                    list.add(" Tên: " + name);
                 }
-            } while (cursor.moveToNext());
+            }
             cursor.close();
-        } else {
-            Toast.makeText(this, "No contacts found", Toast.LENGTH_SHORT).show();
         }
+
+
 
         ListView listView = findViewById(R.id.listView1);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
